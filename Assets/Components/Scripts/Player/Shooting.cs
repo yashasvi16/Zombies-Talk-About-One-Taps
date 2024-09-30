@@ -17,12 +17,14 @@ public class Shooting : MonoBehaviour
     Animator m_animator;
     PlayerInput m_playerInput;
     RaycastHit _rayHit;
+    AudioSource m_audioSource;
 
     /*public GameObject _muzzleFlash, _bulletHoleGraphic;*/
     private void Start()
     {
         m_animator = GetComponent<Animator>();
         m_playerInput = GetComponent<PlayerInput>();
+        m_audioSource = GetComponent<AudioSource>();
 
         m_bulletsLeft = _magazineSize;
         m_readyToShoot = true;
@@ -42,6 +44,7 @@ public class Shooting : MonoBehaviour
             m_bulletsShot = _bulletsPerTap;
             Shoot();
             m_animator.SetTrigger("Shoot");
+            PlayGunAudio();
         }
     }
     private void Shoot()
@@ -86,5 +89,10 @@ public class Shooting : MonoBehaviour
     {
         m_bulletsLeft = _magazineSize;
         m_reloading = false;
+    }
+
+    private void PlayGunAudio()
+    {
+        m_audioSource.Play();
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 using System.Collections;
+using UnityEditor.Rendering;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class UIManager : MonoBehaviour
     [Header("Transforms")]
     [SerializeField] Transform _animationStartTransform;
     [SerializeField] Transform _animationEndTransform;
+    [SerializeField] RectTransform _healthForeground;
 
     void Awake()
     {
@@ -34,7 +36,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScore(int score)
     {
-        scoreTXT.text = "Score: " + score.ToString();
+        scoreTXT.text = "Kill Count: " + score.ToString();
     }
 
     public void StartMenu()
@@ -72,5 +74,11 @@ public class UIManager : MonoBehaviour
         {
             instructionTXT.gameObject.SetActive(false);
         });
+    }
+
+    public void UpdatePlayerHealth(int health)
+    {
+        _healthForeground.sizeDelta = new Vector2(health * 2f, _healthForeground.sizeDelta.y);
+        Debug.Log(health);
     }
 }

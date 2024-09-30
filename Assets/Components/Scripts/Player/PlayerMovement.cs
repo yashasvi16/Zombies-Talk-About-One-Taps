@@ -6,14 +6,11 @@ public class PlayerMovement : MonoBehaviour
     PlayerInput m_playerInput;
 
     [Header("Player POV")]
-    [SerializeField] float _rotationSmoothTime = 0.12f;
-    [SerializeField] bool _LockCameraPosition = false;
     [SerializeField] float _rotationSpeed = 0.5f;
 
     [SerializeField] GameObject _cinemachineCameraTarget;
     [SerializeField] float _topClamp = 70.0f;
     [SerializeField] float _bottomClamp = -30.0f;
-    [SerializeField] float _handsOffset = -20f;
     [SerializeField] bool _invertX = false;
     [SerializeField] bool _invertY = false;
     float m_cinemachineTargetPitch;
@@ -27,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator _handAnimator;
     [SerializeField] float _crouchSpeed = 1f;
     [SerializeField] float _crouchHeight = 1.2f;
-    [SerializeField] float _crouchCentre = 0.8f;
     float m_targetSpeed;
     float m_normalHeight;
     float m_transitionHeight;
