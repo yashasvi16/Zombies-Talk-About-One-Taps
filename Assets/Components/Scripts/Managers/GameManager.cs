@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -62,6 +63,27 @@ public class GameManager : MonoBehaviour
     public bool GetGameStatus()
     {
         return m_gameStatus;
+    }
+
+    public void PlayerDead()
+    {
+        PutGameStatus(false);
+        Time.timeScale = 0;
+    }
+
+    public void GamePause()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void GameResume()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void UpdateScore()

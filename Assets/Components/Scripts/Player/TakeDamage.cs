@@ -10,7 +10,7 @@ public class TakeDamage : MonoBehaviour
         if (_health <= 0)
         {
             _health = 0;
-            GameManager.Instance.PutGameStatus(false);
+            GameManager.Instance.PlayerDead();
             UIManager.Instance.UpdatePlayerHealth(_health);
         }
 

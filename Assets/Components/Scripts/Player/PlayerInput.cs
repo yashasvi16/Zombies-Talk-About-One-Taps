@@ -21,8 +21,8 @@ public class PlayerInput : MonoBehaviour
     [HideInInspector]
     public bool reload;
 
-    public bool cursorLocked = true;
-    public bool cursorInputForLook = true;
+    public bool cursorLocked;
+    public bool cursorInputForLook;
 
     public void OnMove(InputValue value)
     {
