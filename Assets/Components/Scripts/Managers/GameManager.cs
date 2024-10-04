@@ -98,4 +98,11 @@ public class GameManager : MonoBehaviour
 
         UIManager.Instance.UpdateScore(score);
     }
+
+    public void HideCursor()
+    {
+        _player.GetComponent<PlayerInput>().cursorLocked = true;
+        _player.GetComponent<PlayerInput>().cursorInputForLook = true;
+        _player.GetComponent<PlayerInput>().SetCursorState(true);
+    }
 }
